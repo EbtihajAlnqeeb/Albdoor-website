@@ -1,0 +1,614 @@
+/*-------------------------------text style------------------------------------------------*/
+body {
+  font-family: "Noto Kufi Arabic", sans-serif;
+}
+
+ 
+h2{
+
+  font-weight: 600 !important;
+  font-size: clamp(22px, 4vw, 48px) !important;
+  
+  
+}
+
+h3 {
+  font-weight: 600 !important;
+  font-size: clamp(18px, 3vw, 32px) !important;
+ 
+
+}
+
+
+/* إخفاء كل الأقسام قبل الظهور */
+section:not(.hero) {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+/* لما يدخل القسم الشاشة */
+section.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/*------------------------------------------------------------------------------*/
+
+
+
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+
+*{
+    box-sizing: border-box;
+   
+}
+
+/*------------------------------*/
+
+.titleLine {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px; /* space between elements */
+  margin: 50px 0;
+  position: relative;
+  text-align: center;
+  direction: ltr;
+  
+}
+
+.titleLine h2 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #0e2732;
+  margin: 0;
+  white-space: nowrap; /* prevent breaking */
+}
+
+.myLine {
+  flex: 1;
+  height: 3px;
+  background: linear-gradient(to right, transparent, #0e2732 50%, transparent) ;
+}
+
+/* To make left line fade toward center and right one fade outward */
+.myLine:first-of-type {
+  background: linear-gradient(to right, transparent, #0e2732 60%);
+}
+
+.myLine:last-of-type {
+  background: linear-gradient(to left, transparent, #0e2732 60%);
+}
+
+
+
+section.active .myLine{
+
+   animation: growLine 1.8s ease-out forwards;
+}
+
+
+
+/* Keyframes */
+@keyframes growLine {
+  0% { transform: scaleX(0); }
+  50%{transform: scaleX(0.5);}
+  100% { transform: scaleX(1); }
+}
+
+/*----------------------------*/
+
+
+
+
+.service_section-technical {
+  position: relative;
+  background-image: url(assets/service1.png);
+  background-size: cover;
+  background-position: center;
+  height: 500px;
+  margin-bottom: 100px;
+ 
+  overflow: hidden;
+}
+
+
+.service_section-environment{
+
+ position: relative;
+  background-image: url(assets/enviroment-hero.png);
+  background-size: cover;
+  background-position: center;
+  height: 500px;
+  margin-bottom: 100px;
+ 
+  overflow: hidden;
+
+
+}
+
+
+.service_section-strategy{
+
+  position: relative;
+  background-image: url(assets/startegy-hero.png);
+  background-size: cover;
+  background-position: center;
+  height: 500px;
+  margin-bottom: 100px;
+ 
+  overflow: hidden;
+
+}
+
+
+
+/* dark overlay */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(14, 39, 50, 0.7);
+  z-index: 1;
+}
+
+/* text */
+
+.hero h2{
+  color: #fff;
+}
+.hero h3 {
+  position: relative; /* stays above overlay */
+  color: #fff;
+  font-size: 32px;
+  font-weight: 700;
+  text-align: center;
+  z-index: 2; /* above overlay */
+}
+
+/* optional - if you want smoother centering */
+.hero {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 2;
+}
+
+/* WhatsApp icon stays on top corner */
+.whatsapp_icon {
+  position: fixed;
+  right: 20px;
+  bottom: 50%;
+  width: 55px;
+  z-index: 3;
+}
+
+
+/*=============service_fields==============*/
+
+.service_fields{
+
+    margin-bottom: 100px;
+
+}
+
+.title_row2 {
+  position: relative;
+  text-align: center;
+  display: flex;
+  font-size: 28px;
+  font-weight: 700;
+  color: #0e2732;
+  margin: 50px 0;
+  justify-content: center;
+  justify-items: center;
+  gap: 20px;
+
+}
+
+
+
+.service_feilds {
+  
+  text-align: center;
+  padding: 80px 10%;
+/*  background-color: #fff;*/
+  justify-content: center;
+
+  margin-bottom: 100px;
+}
+
+/* Title with decorative brackets */
+
+
+/* Grid layout */
+.service-grid {
+  direction: rtl;
+  display: grid;
+  padding-left: 20px;
+  padding-right: 20px;
+ grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+}
+
+.service-container{
+
+  border-radius: 12px;
+  padding: 15px 25px;
+  background: #FAFBFB;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  text-align: right !important;
+  
+  
+}
+/* Box styling */
+.service-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+ 
+
+}
+
+.service-container:hover {
+  transform: translateY(-5px);
+  background: #eef4f6;
+}
+
+/* Number badge */
+.service-box .number {
+  background-color: #ddd;
+  color: #6A272F;
+  font-weight: 600;
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: 14px;
+  margin-left: 12px;
+}
+
+/* Text */
+.service-box p {
+  flex: 1;
+  color: #0E2732;
+  margin: 0;
+  text-align: right;
+  font-weight: 500;
+}
+
+.service-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background 0.3s ease;
+}
+
+.extra {
+  justify-content: right;
+  width: 100%;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height .4s ease, opacity .4s ease;
+  margin-top: 10px;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #555; 
+}
+
+/* إذا انفتح الصندوق */
+.service-container.open .extra {
+  max-height: 300px;
+  opacity: 1;
+ /* padding: 10px 10px;*/
+  
+}
+
+/* إذا انفتح الصندوق */
+.service-container:hover .extra {
+  max-height: 300px;
+  opacity: 1;
+ /* padding: 10px 10px;*/
+  
+}
+
+.service-box .arrow {
+  font-size: 20px;
+  transition: transform .3s ease;
+}
+
+.service-container.open .arrow {
+  transform: rotate(180deg);
+}
+
+.extra ul li::marker {
+  color: #6A272F;
+  font-size: 18px;
+}
+
+.extra ul {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* كل صف فيه عنصرين */
+  gap: 10px 20px; /* مسافة بين العناصر */
+  margin: 10px 0;
+  padding-right: 20px; /* ينظم شكل الـ bullets في RTL */
+}
+
+
+
+
+/**/
+
+
+
+
+/*=======================for the title====================================*/
+
+.section-title{
+
+   text-align: center;
+  padding: 80px 10%;
+/*  background-color: #fff;*/
+  justify-content: center;
+
+}
+
+/*===================why service ===========================*/
+.why_container{
+
+    display: flex;
+    justify-content: center;
+     flex-wrap: wrap; /* prevent overflow */
+}
+
+
+/*.why_img_technicla{
+  width: 600px;
+  background-image: ;
+}*/
+
+.why_container img {
+
+ width : 600px;
+}
+
+
+/* The 3 stacked slide layers */
+.images{ 
+  
+  
+  position: relative; 
+  width:600px;
+
+
+}
+.image{
+  position: absolute; inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  animation: fade 24s infinite; /* 4 slides x 6s each = 18s loop */
+  transition: opacity 1.5s ease-in-out;
+}
+
+   /* Set the 3 images + stagger their delays */
+.s1{ background-image: url("assets/whyImage.png"); animation-delay: 0s;  }
+.s2{ background-image: url("assets/enviroment-why.png"); animation-delay: 6s;  }
+.s3{ background-image: url("assets/strategy-why.png"); animation-delay: 12s; }
+.s4{background-image: url("assets/aboutImg.png"); animation-delay: 18s ;}
+
+/*the following used for appear the slides */
+
+@keyframes fade {
+  0% { opacity: 0; }
+  5% { opacity: 1; }    /* fade in */
+  30% { opacity: 1; }   /* stay visible */
+  35% { opacity: 0; }   /* fade out */
+  100% { opacity: 0; }  /* hidden until next cycle */
+}
+
+/* Highlight the active why item */
+.why_item.active {
+  background-color: rgba(255,255,255,0.2);
+ /* border: 4px solid #6A272F;*/
+  transition: 0.3s;
+  box-shadow: 5px 5px 5px 5px #555;
+}
+
+
+.why_service {
+  
+  background-color: #fff;
+  text-align: center;
+   display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 100px;
+  flex-wrap: wrap;
+
+}
+
+
+
+
+
+/* Left image */
+.why-image img {
+  width: 420px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Right list */
+.why_list {
+  margin-left: 120px;
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  width: 400px;
+}
+
+/* Each item */
+.why_item {
+  background-color: #F8F8F8;
+  border-radius: 10px;
+  padding: 12px 18px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  text-align: right;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  direction: rtl;
+}
+
+.why-item:hover {
+  background-color: #eef4f6;
+  transform: translateY(-3px);
+}
+
+/* Icon */
+.why_item img {
+  width: 28px;
+  height: 28px;
+}
+
+/* Text */
+.why_item p {
+  color: #0E2732;
+  font-weight: 500;
+  font-size: 16px;
+  margin: 0;
+}
+
+/* Responsive for mobile */
+@media (max-width: 768px) {
+  .why-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .why-list {
+    width: 100%;
+  }
+
+  .why_item {
+    justify-content: center;
+  }
+}
+
+
+/* ===== CTA Section ===== */
+.cta-section {
+  position: relative;
+  background: linear-gradient(180deg, #0F2B37 0%, #405B66 50%, #0F2B37 100%);
+  color: #ffffff;
+  text-align: center;
+  border-radius: 22px;
+  padding: 100px 20px;
+  width: 80%;
+  margin: 100px auto;
+  overflow: hidden;
+  direction: rtl;
+  font-family: "Cairo", sans-serif;
+}
+
+/* background gear image */
+
+
+.gear-bg1{
+
+  position: absolute;
+  transform-style: preserve-3d;/*used to rotate the image but did not work*/
+  top: 60%;
+  left:-30px;
+  width: 300px;
+  transition: transform 1.5s linear; /* smooth rotation */
+  transform-origin: center;
+}
+
+
+.gear-bg2{
+
+  position: absolute;
+  transform-style: preserve-3d;/*used to rotate the image but did not work*/
+  top: 290px;
+  left:-85px;
+  width: 200px;
+  transition: transform 1.5s linear; /* smooth rotation */
+  transform-origin: center;
+}
+
+
+.cta-section.active .gear-bg1{
+
+  transform: rotate(60deg); /* full rotation */
+  
+
+}
+
+/* content */
+.cta-content {
+  position: relative;
+  z-index: 1;
+}
+
+.cta-content h2 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.cta-content p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #e3e9ec;
+  margin-bottom: 35px;
+}
+
+/* red button */
+.cta-btn {
+  background-color: #6A272F ;
+  color: #fff;
+  padding: 14px 40px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.cta-btn:hover {
+ 
+  transform: scale(1.05);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .cta-section {
+    width: 90%;
+    padding: 60px 15px;
+  }
+
+  .cta-content h2 {
+    font-size: 22px;
+  }
+
+  .cta-content p {
+    font-size: 14px;
+  }
+
+  .gear-bg {
+    width: 120px;
+    left: 10px;
+  }
+}

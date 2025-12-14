@@ -1,0 +1,67 @@
+.navbar {
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(10px);
+      border-radius: 15px;
+      padding: 0.7rem 2rem;
+      margin: 1rem auto;
+      width: 90%;
+      z-index: 999;
+      direction: rtl;
+      position: fixed;
+      top:0;
+      left:0;
+    }
+
+    .navbar-brand img {
+      height: 40px;
+      margin-left: 20px;
+    }
+
+    .btn-contact {
+      background-color:#6A272F;
+      color: white;
+      border-radius: 8px;
+      padding: 8px 20px;
+    }
+
+ 
+
+  
+   a{
+
+    text-decoration: none !important;
+    
+   }
+    .nav-link {
+      color: #000 !important;
+      font-weight: 500;
+      margin-right: 20px;
+    }
+
+
+    .nav-item{
+   
+      margin-right: 20px;
+    }
+
+
+  
+
+
+strong{
+
+  color: #000;
+}
+
+
+small{
+
+  color: #000;
+}
+
+   .dropdown-item{
+
+   justify-content: right !important;
+   }
+
+   

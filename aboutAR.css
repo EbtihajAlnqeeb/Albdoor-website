@@ -1,0 +1,748 @@
+
+/*----------------------txt style---------------------------*/
+body {
+  font-family: "Noto Kufi Arabic", sans-serif;
+}
+
+
+ 
+h2{
+
+  font-weight: 600 !important;
+  font-size: clamp(22px, 4vw, 48px) !important;
+  
+  
+}
+
+h3 {
+  font-weight: 600 !important;
+  font-size: clamp(18px, 3vw, 32px) !important;
+
+}
+
+
+ .about h2{
+
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: aliceblue;
+    }
+ 
+
+    
+/* إخفاء كل الأقسام قبل الظهور */
+section:not(.hero) {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+/* لما يدخل القسم الشاشة */
+section.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+   
+  /*===================================================about first section ==============================================================================*/
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+
+/*------------------------------*/
+
+.titleLine {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px; /* space between elements */
+  margin: 50px 0;
+  position: relative;
+  text-align: center;
+  direction: ltr;
+}
+
+.titleLine h2 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #0e2732;
+  margin: 0;
+  white-space: nowrap; /* prevent breaking */
+}
+
+.myLine {
+  flex: 1;
+  height: 3px;
+  background: linear-gradient(to right, transparent, #0e2732 50%, transparent);
+}
+
+/* To make left line fade toward center and right one fade outward */
+.myLine:first-of-type {
+  background: linear-gradient(to right, transparent, #0e2732 60%);
+}
+
+.myLine:last-of-type {
+  background: linear-gradient(to left, transparent, #0e2732 60%);
+}
+
+
+section.active .myLine{
+
+   animation: growLine 1.8s ease-out forwards;
+}
+
+
+
+/* Keyframes */
+@keyframes growLine {
+  0% { transform: scaleX(0); }
+  50%{transform: scaleX(0.5);}
+  100% { transform: scaleX(1); }
+}
+
+
+/*----------------------------*/
+
+
+ 
+    .about{
+
+        background-image: url("assets/aboutImg.png");
+        height: 500px;
+        justify-content: center;
+        align-items: center;
+    }
+
+  
+
+
+    .about h3, .about h6 {
+
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: aliceblue;
+    }
+
+   
+.info-box {
+  position: relative;
+  top:270px;
+  left:50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  border: 2px solid #007bff; /* blue border */
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  padding: 20px 40px;
+  width: 60%;
+  max-width: 900px;
+ 
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #000;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.about p{
+
+    color:#000;
+}
+
+.info-item img {
+  width: 30px;
+  height: 30px;
+}
+
+.divider {
+  width: 2px;
+  height: 40px;
+  background-color: #ccc;
+  margin: 0 20px;
+}
+
+.info-item p {
+  direction: rtl;
+  unicode-bidi: embed;
+}
+
+.whatsapp_icon{
+
+
+  position: fixed;
+
+  bottom: 50%px;
+  right: 0px;
+
+  height: 60px;
+
+  width: 60px;
+
+  z-index: 1;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+/* ====== vision section ====== */
+.vision-section {
+  position: relative;
+  background: url("assets/Vision\,mission\,message1.png") center/cover no-repeat;
+  height: 680px; /* similar to Figma (677px) */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  z-index: 0;
+}
+
+/* dark overlay to make text readable */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(14, 39, 50, 0.7); /* same tone as #0E2732 */
+  z-index: 1;
+}
+
+/* ====== Cards Container ====== */
+.vision-container {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  width: 90%;
+  max-width: 1200px;
+}
+
+/* ====== Individual Card ====== */
+.vision-card {
+  background-color: rgba(14, 39, 50, 0.9);
+  color: white;
+  text-align: center;
+  padding: 40px 25px;
+  border-radius: 8px;
+  width: 300px;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  position: relative;
+  border-top: 2px solid #0E2732;
+  border-bottom: 2px solid #0E2732;
+  transition: transform 0.3s ease;
+}
+
+.vision-card:hover {
+  transform: translateY(-8px);
+}
+
+/* ====== Icons & Text ====== */
+.icon {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 15px;
+}
+
+.vision-card h3 {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.vision-card p {
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+/* ====== Responsive ====== */
+@media (max-width: 900px) {
+  .vision-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .vision-card {
+    width: 90%;
+  }
+}
+
+/* ===== Base Section ===== */
+.values-section {
+  text-align: center;
+  padding: 100px 0;
+  background-color: #fff;
+  position: relative;
+  direction: rtl;
+  font-family: "Cairo", sans-serif;
+}
+
+.section-title {
+  font-size: 32px;
+  color: #0e2732;
+  margin-bottom: 60px;
+  position: relative;
+}
+
+.section-title::before,
+.section-title::after {
+  content: "";
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  vertical-align: middle;
+  margin: 0 ;
+  margin-left: 20px;
+  
+  
+}
+
+
+
+/* left image */
+/*.section-title::before {
+  background-image: url("assets/right.png");
+  
+}*/
+
+/* right image */
+/*.section-title::after {
+  background-image: url("assets/left.png");
+}*/
+
+/* ===== Layout ===== */
+.values-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Columns */
+.values-column {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 35%;
+}
+
+/* ===== Cards ===== */
+.value-card {
+  background-color: #0e2732;
+  color: white;
+  padding: 25px 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease;
+  text-align: center;
+  z-index: 1;
+}
+
+.value-card:hover {
+  transform: translateY(-6px);
+}
+
+.value-card h3 {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.value-card p {
+  font-size: 14px;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* ===== Center Gear ===== */
+.center-gear {
+  width: 120px;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f5f8f9;
+  border-radius: 50%;
+  position: relative;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+.center-gear img {
+  width: 60px;
+  height: 60px;
+}
+
+/* Optional connecting lines */
+.center-gear::before,
+.center-gear::after {
+  content: "";
+  position: absolute;
+  width: 200px;
+  height: 2px;
+  background-color: #d0d7db;
+  
+}
+
+.center-gear::before {
+  right: 100%;
+}
+
+.center-gear::after {
+  left: 100%;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 1000px) {
+  .values-container {
+    flex-direction: column;
+  }
+
+  .values-column {
+    width: 90%;
+  }
+
+  .center-gear {
+    margin: 40px 0;
+  }
+
+  .center-gear::before,
+  .center-gear::after {
+    display: none;
+  }
+}
+
+
+/*==================Partner section=========================*/
+
+/* ====== Partners Section ====== */
+.partner-section {
+  text-align: center;
+  padding: 100px 0;
+  background-color: #ffffff;
+  font-family: "Cairo", sans-serif;
+  direction: rtl;
+}
+
+/*.section-title {
+  font-size: 32px;
+  color: #0e2732;
+  margin-bottom: 60px;
+  position: relative;
+}*/
+
+.title_row2 {
+  display: flex;
+  margin: 50px 0;
+  justify-content: center;
+  justify-items: center;
+  direction: ltr;
+
+}
+
+.title_row h2 {
+  font-size: 28px;
+  font-weight: 700;
+ 
+}
+
+
+
+/*rewrite style of content */
+
+
+
+  .content-section {
+  width: 90%;
+  margin: 100px auto;
+  direction: ltr;
+  margin-top: 200px;
+}
+
+.row-box {
+  display: grid;
+  grid-template-columns: 1fr 120px 1fr;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 140px;
+}
+
+.text-box {
+  text-align: center;
+  padding: 0 20px;
+  max-width: 420px;
+  margin: auto;
+}
+
+.text-box h3 {
+  font-size: 22px;
+  font-weight: 700;
+  color:#000;
+  margin-bottom: 15px;
+}
+
+.text-box p {
+  color:#000;
+  font-size: 15px;
+  line-height: 1.9;
+  direction: rtl;
+}
+
+.img-box {
+  width: 230px;
+  height: 230px;
+  background-color: #ECEFF0;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+
+.circle-img {
+  width: 120px;
+  height: 120px;
+}
+
+.midle-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: 100%;
+}
+
+
+.content-section.active .gear-icon{
+ 
+ transform: rotate(180deg); /* full rotation */
+  
+
+}
+
+.gear-icon {
+ 
+  transition: transform 2.2s linear;
+}
+
+.line {
+  width: 2px;
+  flex-grow: 1;
+  background: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    #28434f 65%,
+    #0f2b37 80%,
+    #28434f 90%,
+    #ffffff 100%
+  );
+
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .row-box {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .midle-box {
+    flex-direction: row;
+    margin: 30px 0;
+  }
+
+  .line {
+    height: 2px;
+    width: 60px;
+    display: none;
+  }
+}
+
+
+/* ====== Grid of Logos ====== */
+.partners-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 40px;
+  justify-items: center;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Each logo box */
+.partner-logo {
+  background-color: #f5f8f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  width: 180px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.partner-logo:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Logo images */
+.partner-logo img {
+  max-width: 120px;
+  max-height: 60px;
+  object-fit: contain;
+  filter: grayscale(40%);
+  transition: filter 0.3s ease;
+}
+
+.partner-logo img:hover {
+  filter: grayscale(0%);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .partners-grid {
+    gap: 20px;
+  }
+  .partner-logo {
+    width: 140px;
+    height: 80px;
+  }
+}
+
+
+
+/* ===== CTA Section ===== */
+.cta-section {
+  position: relative;
+  background: linear-gradient(180deg, #0F2B37 0%, #405B66 50%, #0F2B37 100%);
+  color: #ffffff;
+  text-align: center;
+  border-radius: 22px;
+  padding: 100px 20px;
+  width: 80%;
+  margin: 100px auto;
+  overflow: hidden;
+  direction: rtl;
+  font-family: "Cairo", sans-serif;
+}
+
+/* background gear image */
+
+
+.gear-bg1{
+
+  position: absolute;
+  transform-style: preserve-3d;/*used to rotate the image but did not work*/
+  top: 60%;
+  left:-30px;
+  width: 300px;
+  transition: transform 1.5s linear; /* smooth rotation */
+  transform-origin: center;
+}
+
+
+.gear-bg2{
+
+  position: absolute;
+  transform-style: preserve-3d;/*used to rotate the image but did not work*/
+  top: 290px;
+  left:-85px;
+  width: 200px;
+  transition: transform 1.5s linear; /* smooth rotation */
+  transform-origin: center;
+}
+
+
+.cta-section.active .gear-bg1{
+
+  transform: rotate(60deg); /* full rotation */
+  
+
+}
+
+
+/* content */
+.cta-content {
+  position: relative;
+  z-index: 1;
+}
+
+.cta-content h2 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.cta-content p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #e3e9ec;
+  margin-bottom: 35px;
+}
+
+/* red button */
+.cta-btn {
+  background-color: #6A272F ;
+  color: #fff;
+  padding: 14px 40px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.cta-btn:hover {
+ 
+  transform: scale(1.05);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .cta-section {
+    width: 90%;
+    padding: 60px 15px;
+  }
+
+  .cta-content h2 {
+    font-size: 22px;
+  }
+
+  .cta-content p {
+    font-size: 14px;
+  }
+
+  .gear-bg {
+    width: 120px;
+    left: 10px;
+  }
+}
+

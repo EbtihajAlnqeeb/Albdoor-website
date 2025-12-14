@@ -1,0 +1,1663 @@
+ /*---------------------text style------------------*/
+
+ body {
+  font-family: "Noto Kufi Arabic", sans-serif;
+}
+
+ 
+h2{
+
+  font-weight: 600 !important;
+  font-size: clamp(22px, 4vw, 48px) !important;
+  
+  
+}
+
+h3 {
+  font-weight: 600 !important;
+  font-size: clamp(18px, 3vw, 32px) !important;
+
+}
+
+/* إخفاء كل الأقسام قبل الظهور */
+section:not(.hero) {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+/* لما يدخل القسم الشاشة */
+section.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+/*
+section.active .titleLine img{
+
+ transform: rotate(360deg);
+} */
+
+
+/*------------------------------*/
+
+.titleLine {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px; /* space between elements */
+  margin: 50px 0;
+  position: relative;
+  text-align: center;
+  direction: ltr;
+}
+
+
+.titleLine h2 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #0e2732;
+  margin: 0;
+  white-space: nowrap; /* prevent breaking */
+  align-items: center;
+}
+
+.myLine {
+  flex: 1;
+  height: 3px;
+  background: linear-gradient(to right, transparent, #0e2732 50%, transparent);
+  transform: scaleX(0);
+  transform-origin: center;
+ /* animation: growLine 1.8s ease-out forwards;*/
+  
+}
+
+section.active .myLine{
+
+   animation: growLine 1.8s ease-out forwards;
+}
+
+/*when active line appear */
+/*
+.partner-section.active .myLine {
+  opacity: 1;               // fade in 
+  transform: scaleX(1);       expand line 
+  transition: transform 1s ease-out, opacity 0.6s ease;
+}*/
+
+
+
+
+/* Keyframes */
+@keyframes growLine {
+  0% { transform: scaleX(0); }
+  50%{transform: scaleX(0.5);}
+  100% { transform: scaleX(1); }
+}
+/**/
+
+/* To make left line fade toward center and right one fade outward */
+.myLine:first-of-type {
+  background: linear-gradient(to right, transparent, #0e2732 60%);
+}
+
+.myLine:last-of-type {
+  background: linear-gradient(to left, transparent, #0e2732 60%);
+}
+
+
+
+/*----------------------------*/
+
+
+.myTitle{
+
+
+font-family: Noto Kufi Arabic;
+font-weight: 700;
+font-style: Bold;
+line-height: 110px;
+text-align: center;
+font-size: 48px; 
+font-size: clamp(22px, 4vw, 64px);
+align-items: center;
+
+
+}
+
+/**/
+
+
+
+
+/**/
+  
+
+.hero{
+  position: relative;
+  height: 90vh;                 /* full hero height */
+  color: #fff;
+  overflow: hidden;
+ /* background-image: url(assets/heroImg1.png);*/
+}
+
+
+/* dark overlay */
+.hero .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(14, 39, 50, 0.7);
+  z-index: 1;
+}
+
+
+.hero-content{
+    justify-content: center;
+    align-items: center;
+    padding-left: 140px;
+    padding-top: 140px;
+    text-align: center;
+
+}
+/* i put the z index values to let these appears above other elments */
+.navbar,
+.hero-content,
+.dots {
+  position: relative;
+  z-index: 2; /* Bring them to the top */
+}
+
+/* The 3 stacked slide layers */
+.slides{ 
+  
+  
+  position: absolute; inset: 0;
+   z-index: 0; /* Lowest layer */
+
+
+}
+.slide{
+  position: absolute; inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  animation: fade 18s infinite; /* 3 slides x 6s each = 18s loop */
+  transition: opacity 1.5s ease-in-out;
+}
+
+   /* Set the 3 images + stagger their delays */
+.s1{ background-image: url("assets/heroImg1.png"); animation-delay: 0s;  }
+.s2{ background-image: url("assets/heroImg2.png"); animation-delay: 4s;  }
+.s3{ background-image: url("assets/heroImg3.png"); animation-delay: 10s; }
+
+/*the following used for appear the slides */
+
+@keyframes fade {
+  0% { opacity: 0; }
+  5% { opacity: 1; }    /* fade in */
+  30% { opacity: 1; }   /* stay visible */
+  35% { opacity: 0; }   /* fade out */
+  100% { opacity: 0; }  /* hidden until next cycle */
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3); /* dark overlay for better contrast */
+  z-index: 1; /* above slides, below text/nav */
+}
+
+
+
+.hero-actions{
+  
+  display: flex;
+  justify-content: center;
+  gap:20px;
+
+  
+  
+  }
+
+ 
+
+
+.ghost {
+  border: 2px solid rgba(255,255,255,0.6);
+  border-radius: 5%;
+ 
+  background: transparent;
+  
+  text-decoration: none;
+  color:#fff;
+  padding: 5px 20px; 
+  
+
+
+  
+}
+
+a :hover{
+
+    cursor: pointer;
+}
+
+ a{
+
+   text-decoration: none;
+  
+    
+    
+}
+
+
+.solid{
+
+  margin-left: 20px;
+  padding:5px 20px;
+  background:#6A272F;
+  color:#fff;
+
+text-decoration: none;
+
+border-radius: 5%;
+}
+
+
+.whatsapp_icon{
+
+
+  position: fixed;
+
+  bottom: 50%;
+  right: 0px;
+
+  height: 60px;
+
+  width: 60px;
+
+  z-index: 1;
+}
+
+/* whyus section */
+.whyUs_section{
+
+
+    margin-top: 230px;
+   justify-content: center;
+   
+   
+}
+
+.whyContainer{
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 140px;
+    margin: 40px 0px;
+    justify-content: center;
+    justify-items: center;
+}
+
+
+.whyContainer div{
+
+    justify-content: center;
+}
+
+
+p , h1 , h2 ,h3 ,h4 {
+
+    direction: rtl;
+}
+
+
+
+.green-btn{
+
+   
+  padding: 10px;
+ 
+  border-radius: 6px;
+  color:#ccc;
+  text-decoration: none;
+  background-color: #063540;
+  margin-left: 400px;
+  margin-top: 40px;
+}
+
+
+.title_row2 {
+  position: relative;
+  text-align: center;
+  font-size: 28px;
+  font-weight: 700;
+  color: #0e2732;
+  margin: 50px 0;
+  justify-content: center;
+  justify-items: center;
+   direction: ltr;
+
+}
+
+
+/*منهجيتنا في التشغيل والصيانة */
+.cafm-section {
+  direction: rtl;
+  text-align: right;
+  background-color: #fff;
+  padding: 80px 0;
+  font-family: "Cairo", sans-serif;
+  margin-top: 100px;
+}
+
+.cafm-desc {
+  text-align: center;
+  font-size: 18px;
+  color: #444;
+  line-height: 1.8;
+  max-width: 800px;
+  margin: 0 auto 60px auto;
+}
+
+
+/*.cafm-desc {
+  text-align: center;
+  font-size: 18px;
+  color: #444;
+  line-height: 1.8;
+  max-width: 800px;
+  margin: 0 auto 60px auto;
+}
+
+.cafm-content {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+
+.cafm-col {
+  background-color: #f8f9fa;
+  border-radius: 12px;
+  padding: 30px 40px;
+  width: 400px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.cafm-heading {
+  background-color: #0e2732;
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 8px;
+  font-size: 18px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.cafm-col ul {
+  list-style-type: disc;
+  padding-right: 20px;
+}
+
+.cafm-col ul li {
+  margin-bottom: 12px;
+  font-size: 16px;
+  color: #333;
+  line-height: 1.7;
+}
+
+
+.cafm-divider {
+  width: 2px;
+  background: linear-gradient(to bottom, transparent, #0e2732, transparent);
+  height: 100%;
+  min-height: 300px;
+}*/
+
+
+.cafm-content {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
+  margin-top: 40px;
+  flex-wrap: wrap;
+}
+
+.cafm-col {
+  background-color: #f8f9fa;
+  border-radius: 12px;
+  padding: 25px 35px;
+  width: 420px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.cafm-heading {
+  background-color: #0e2732;
+  color: white;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 18px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.cafm-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.cafm-list li {
+  position: relative;
+  margin-bottom: 20px;
+  padding-right: 25px;
+  font-size: 16px;
+  color: #333;
+  line-height: 1.7;
+}
+
+/* bullet point style */
+.cafm-list li::before {
+  content: "•";
+  position: absolute;
+  right: 0;
+  top: 0;
+  color: #6A272F;
+  font-size: 22px;
+}
+
+/* Subtext */
+.sub {
+  display: block;
+  color: #777;
+  font-size: 14px;
+  margin-top: 5px;
+  
+}
+
+/* Divider middle column */
+.cafm-divider {
+  width: 2px;
+  background: linear-gradient(to bottom, transparent, #0e2732, transparent);
+  min-height: 380px;
+}
+
+
+
+/*منهجيتنا في التشغيل نهاية التنسيق*/
+
+/*منهجيتنا 3 تنسيق*/
+/* منـهجيتنا في التشغيل والصيانة – الجدول المتصل */
+.cafm-section {
+  direction: rtl;
+  text-align: right;
+  background-color: #fff;
+  padding: 80px 0;
+  font-family: "Cairo", sans-serif;
+  margin-top: 100px;
+}
+
+.cafm-desc {
+  text-align: center;
+  font-size: 18px;
+  color: #444;
+  line-height: 1.8;
+  max-width: 800px;
+  margin: 0 auto 40px auto;
+}
+
+/* الحاوية العامة للجدول */
+.cafm-table {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* الهيدر العلوي (العناوين) */
+.cafm-table-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0;
+  margin-bottom: 20px;
+}
+
+
+
+.shape-container{
+
+  display: grid;
+  grid-template-columns: 1fr;
+  margin-bottom: 20px;
+
+}
+
+.row-shape{
+
+width: 100%;
+ opacity: 0;
+transform: translateY(20px);
+}
+
+
+/* Delay for smooth sequence */
+.cafm-section.active .row1 {
+  animation: fadeUp 0.8s ease forwards;
+}
+
+.cafm-section.active .row2 {
+  animation: fadeUp 1.2s ease forwards;
+}
+
+.cafm-section.active .row3 {
+  animation: fadeUp 1.6s ease forwards;
+}
+
+.cafm-section.active .row4 {
+  animation: fadeUp 2s ease forwards;
+}
+
+.cafm-section.active .row5 {
+  animation: fadeUp 2.4s ease forwards;
+}
+
+.cafm-th {
+  background-color: #0e2732;
+  color: #fff;
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* زوايا مستديرة للعناوين   */
+.cafm-th.right {
+  border-radius: 10px 10px 10px 10px;
+}
+
+.cafm-th.left {
+  border-radius: 10px 10px 10px 10px;
+}
+
+/* الصفوف */
+.cafm-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  position: relative;
+  margin-bottom: 4px;
+  overflow: hidden;
+}
+
+.connect {
+  width: 50px;
+  height: 30px;
+  background: #ccc;
+  grid-column: 2;
+  margin: auto;
+  z-index: 3;
+  border-radius: 0 0 70px 70px; /* نصف دائرة للأسفل */
+
+  position: relative;
+}
+
+.connect::after {
+  content: "";
+  position: absolute;
+  top: -35px;
+  left: 0;
+  width: 150px;
+  height: 70px;
+  background: #ccc;
+  border-radius: 70px 70px 0 0; /* نصف دائرة للأعلى */
+}
+
+
+.connect::before {
+  content: "";
+  position: absolute;
+  top: -35px;
+  right: 0;
+  width: 250px;
+  height: 70px;
+  background: #ccc;
+  transform: rotate(8deg);
+  border-radius: 70px 70px 0 0; /* نصف دائرة للأعلى */
+}
+
+
+
+/* الخلفية المتصلة للصف (يمتد من اليمين لليسار) */
+/*.cafm-row::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    #f1f4f6 0%,
+    #e6ecef 50%,
+    #f1f4f6 100%
+  );
+  z-index: 0;
+  border-radius: 700px;
+}*/
+
+
+
+/* الخلايا يمين ويسار */
+.cafm-td {
+  position: relative;
+  z-index: 1;
+  padding: 10px 24px;
+  font-size: 15px;
+  color: #333;
+  line-height: 1.7;
+}
+
+/* تاكّد أن النص يمين */
+.cafm-td.right,
+.cafm-td.left {
+  text-align: right;
+}
+
+/* النقطة في العمود الأيمن */
+.cafm-td.right {
+  padding-right: 30px;
+}
+
+.cafm-td.right::before {
+  content: "•";
+  position: absolute;
+  right: 12px;
+  top: 10px;
+  color: #6a272f;
+  font-size: 20px;
+}
+
+/* النص الرئيسي + الفرعي في العمود الأيسر */
+.cafm-td.left .main {
+  font-weight: 500;
+  color: #0e2732;
+}
+
+.cafm-td.left .sub {
+  font-size: 13px;
+  color: #777;
+  margin-top: 4px;
+}
+
+/* علامة الصح */
+.check {
+  color: #6a272f;
+  font-weight: bold;
+  margin-right: 4px;
+}
+
+/* آخر صف – زوايا سفلية */
+.cafm-row:last-of-type::before {
+  border-radius: 0 0 10px 10px;
+}
+
+
+
+
+
+/*منهجيتنا 3 تنسيق نهاية الديزاين*/
+
+
+/*all next for second section style*/
+.second_section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+  padding: 100px 100px;
+  background-color: #fff;
+}
+
+.image_div img {
+  width: 600px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.second_text {
+  max-width: 550px;
+  color: #1f1f1f;
+}
+
+
+ 
+
+.title_row h2 {
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0;
+
+}
+
+.gear-icon {
+  width: 30px;
+  height: 61px;
+  transition: transform 1s ease;
+}
+
+.second_text p {
+  margin-top: 15px;
+  line-height: 1.7;
+  color: #444;
+}
+
+.features {
+  display: flex;
+  gap: 20px;
+  margin: 25px 0;
+  margin-bottom: 50px;
+
+}
+
+.feature_box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #f8f9fb;
+  padding: 15px 20px;
+  border-radius: 10px;
+  flex: 1;
+}
+
+.feature_box img {
+  width: 24px;
+  height: 24px;
+}
+
+.feature_box strong {
+  font-size: 16px;
+  color: #1f1f1f;
+}
+
+.feature_box p {
+  margin: 0;
+  font-size: 14px;
+  color: #6c757d;
+}
+
+.grey_btn {
+  display: inline-block;
+  padding: 10px 24px;
+  border: 1px solid #1f1f1f;
+  border-radius: 6px;
+  color: #1f1f1f;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.grey_btn:hover {
+  background-color: #1f1f1f;
+  color: #fff;
+}
+
+
+
+
+/*third section style*/
+
+
+
+
+.title_row2{
+
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+
+.services {
+  text-align: center;
+  padding: 10px 0;
+  background-color: #fff;
+  margin-top: 100px;
+}
+
+.services h2 {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 50px;
+  position: relative;
+}
+
+/* Container for all 3 cards */
+.services-container {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap; /* makes it responsive */
+}
+.title{
+  background-color: #0b3a4b;
+}
+
+
+
+
+/*card with flipping*/
+
+/* Flip container to enable 3D perspective */
+.flip-container {
+  perspective: 1000px; /*  Important */
+  position: relative;
+  width: 450px;
+  height: 545px;
+ 
+}
+
+/* Card design */
+.flip-card {
+  position: absolute;
+  width: 450px;
+  height: 545px;
+  border-radius: 10px;
+  transform-style: preserve-3d;
+  transition: transform 0.8s ease;
+  cursor: pointer;
+}
+
+/* Flip the card on hover */
+.flip-card:hover {
+  transform: rotateY(180deg);
+}
+
+/* Shared front/back styling */
+.front,
+.back {
+  position: absolute;
+  inset: 0;
+  border-radius: 10px;
+  backface-visibility: hidden;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* FRONT face */
+.front {
+  background-color: #063540;
+  color: white;
+}
+
+.front img {
+  width: 100%;
+  height: 90%;
+  object-fit: cover;
+  top:0;
+}
+
+.front p {
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: 500;
+  text-align: center;
+}
+
+/* BACK face (hidden initially) */
+.back {
+  background-color:#405B66 !important;
+  color: #fff;
+  transform: rotateY(180deg);
+  padding: 30px;
+}
+
+.back ul {
+  list-style: disc;
+  text-align: right;
+  direction: rtl;
+  padding-right: 20px;
+  line-height: 1.8;
+}
+
+.back a {
+ position: absolute;
+  bottom: 40px;
+  width: 80%;
+  background: transparent;
+  color: #ddd;
+  border: 2px solid rgba(255,255,255,0.6);
+}
+
+.back a:hover {
+  background-color: #063540;
+  color: white;
+}
+
+.services-container {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+
+
+/**/
+
+
+/*slogan section or 4th section */
+
+.slogan-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 100px 40px;
+  background-color: #fff;
+  gap:140px;
+}
+/*when scroll change color */
+/* What happens when scrolled into view */
+.slogan-section.active {
+  background-color: #405b66ea;
+  color: #ffffff;
+  transition: background-color 0.6s ease, color 0.6s ease;
+}
+
+.slogan-section.active .my-gear-icon{
+
+  stroke: white;
+}
+
+
+/* Make paragraph text white when active */
+.slogan-section.active p {
+  color: #ffffff;
+}
+
+/* Make paragraph text white when active */
+.slogan-section.active h2 {
+  color: #ffffff;
+}
+
+.slogan-section.active .circle {
+
+  bottom: 200px;
+  background-color: #ffffff;
+  
+}
+.slogan-section.active .my-gear-icon svg path[stroke="#405B66"] {
+  stroke: white !important;
+}
+
+.slogan-section.active .vertical-line{
+
+  /*background-color: white;*/
+   background: linear-gradient(to bottom, white 0%, white 28%, #6A272F 40%, #6A272F 100%);
+
+}
+
+
+/*.slogan-section.active .highlight-red,
+.slogan-section.active .highlight-blue {
+  color: #ffffff; /* ensure highlighted spans also become visible 
+}*/
+
+.slogan-section.active .highlight-red{
+
+  color: #ffffff;
+}
+
+/**/
+
+
+.slogan-container {
+  max-width: 800px;
+  text-align: right;
+  justify-content: right;
+  direction: rtl;
+
+}
+
+.slogan-container h2 {
+  font-size: 36px;
+  font-weight: 700;
+  color: #1f1f1f;
+  margin-bottom: 20px;
+}
+
+.highlight-blue {
+  color: #2f4d5f; /* foundation secondary blue-gray tone */
+}
+
+.highlight-red {
+  color:#6A272F; /* red tone from  Figma */
+}
+
+.slogan-container p {
+  font-size: 18px;
+  line-height: 1.7;
+  color: #444;
+  justify-content: right !important;
+}
+
+
+.vertical-line {
+  position: relative;
+  width: 2px;
+  height: 300px;
+  background-color: #2f4d5f;
+  margin-top: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/*arrow shape */
+.vertical-line::before {
+  content: "";
+  position: absolute;
+  top: 0px;     /* Adjust to sit above the line */
+
+  width: 0;
+  height: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-bottom: 10px solid white; /* same as the line color */
+}
+
+.gear-icon2 {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 32px;
+  height: 32px;
+}
+
+.circle {
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 20px;
+  background-color: #405B66;
+  border-radius: 50%;
+  transition: 2.5s ease; /* مهم جداً لعمل الحركة */
+}
+
+.my-gear-icon  {
+  
+ position: absolute;
+  bottom: 300px;
+  z-index: 0;
+
+}
+
+
+/*journey section */
+.journey-section {
+text-align: center;
+padding: 80px 60px;
+background: #fff;
+}
+
+
+
+.journey-header {
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 10px;
+margin-bottom:150px ;
+}
+
+
+.journey-header h2 {
+font-size: 28px;
+font-weight: 700;
+color: #1f1f1f;
+}
+
+/**/
+.rowComponent{
+
+  display: flex;
+}
+
+.dotedLine{
+
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 0;              /* Height should be 0 for border lines */
+  border-top: 2px dotted #063540;
+  z-index: 0;
+  margin-top: 0px;
+  margin-bottom: 20px;
+
+}
+
+.above , .under{
+  display: flex;
+ 
+}
+
+/**/
+.text1{
+  position: absolute;
+  left: 20%;
+  background-color: white;
+  padding: 12px 30px;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: 500;
+  color: #0e2732;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+  text-align: center;
+}
+
+.text2{
+  position: absolute;
+  left: 60%;
+  background-color: white;
+  padding: 12px 30px;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: 500;
+  color: #0e2732;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+  text-align: center;
+}
+
+/* Arrow at the top (empty center arrow style) */
+.text1::after  , .text2::after{
+   content: "";
+  position: absolute;
+  bottom: -10px; /* Places arrow under box */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 12px solid white;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1)); /* adds shadow to arrow */
+}
+
+.text3 {
+  position: absolute;
+  left: 40%;
+  top:70%;
+  background-color: white;
+  padding: 12px 30px;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: 500;
+  color: #0e2732;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+  text-align: center;
+}
+
+/* Arrow at the top (empty center arrow style) */
+.text3::before , .text4::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 12px solid white;
+  filter: drop-shadow(0 -2px 3px rgba(0,0,0,0.12)); /* subtle shadow effect */
+}
+
+
+
+
+.text4{
+
+  position: absolute;
+  left: 80%;
+  top:70%;
+  background-color: white;
+  padding: 12px 30px;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: 500;
+  color: #0e2732;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+  text-align: center;
+}
+
+  /*to appear as animation */
+
+  .text1, .text2, .text3, .text4 {
+   opacity: 0;
+   transform: translateY(20px);
+ 
+}
+
+/* Delay for smooth sequence */
+.journey-section.active .text1 {
+  animation: fadeUp 0.8s ease forwards;
+}
+
+.journey-section.active .text2 {
+  animation: fadeUp 0.8s ease forwards;
+  animation-delay: 0.8s; /* start AFTER text1 finishes */
+}
+
+.journey-section.active .text3 {
+  animation: fadeUp 0.8s ease forwards;
+  animation-delay: 1.6s; /* start AFTER text2 finishes */
+}
+
+.journey-section.active .text4 {
+  animation: fadeUp 0.8s ease forwards;
+  animation-delay: 2.4s; /* start AFTER text3 finishes */
+}
+
+/* Keyframe animation */
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/**/
+
+
+
+
+/**/
+
+.timeline {
+display: flex;
+justify-content: space-between;
+align-items: center;
+position: relative;
+margin: 140px 0;
+}
+
+
+
+
+.year {
+position: relative;
+z-index: 1;
+text-align: center;
+width: 200px;
+}
+
+
+.year h3 {
+font-size: 24px;
+color: #1f1f1f;
+}
+
+
+.year p {
+font-weight: 500;
+color: #000;
+font-size: 14px;
+}
+
+
+.dot2 {
+display: inline-block;
+width: 20px;
+height: 20px;
+background-color: #731c1c;
+border-radius: 50%;
+margin-bottom: 10px;
+}
+
+
+.dot3{
+display: inline-block;
+width: 20px;
+height: 20px;
+background-color:#0b3a4b;
+border-radius: 50%;
+margin-bottom: 10px;
+}
+
+
+.milestones {
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 40px;
+z-index: 2;
+}
+
+
+.milestone {
+background: #fff;
+box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+padding: 8px 16px;
+border-radius: 8px;
+font-size: 14px;
+}
+
+
+.journey-text {
+max-width: 800px;
+margin: 40px auto 0 auto;
+color: #444;
+font-size: 16px;
+line-height: 1.7;
+}
+
+
+.explore-btn {
+display: inline-block;
+margin-top: 20px;
+border: 1px solid #1f1f1f;
+padding: 10px 20px;
+border-radius: 6px;
+text-decoration: none;
+color: #ddd;
+transition: 0.3s ease;
+background-color: #063540;
+}
+
+
+.explore-btn:hover {
+background-color: #1f1f1f;
+color: #fff;
+}
+
+/*partner section */
+.partners-section {
+position: relative;
+background: linear-gradient(120deg, #2f4d5f, #1f2e38);
+border-radius: 20px;
+color: #fff;
+text-align: center;
+padding: 100px 40px;
+overflow: hidden;
+}
+
+
+.partners-content {
+position: relative;
+z-index: 2;
+max-width: 800px;
+margin: 0 auto;
+}
+
+
+.partners-content h2 {
+font-size: 30px;
+font-weight: 700;
+line-height: 1.4;
+margin-bottom: 20px;
+}
+
+
+.partners-content p {
+font-size: 18px;
+color: #dfe6ec;
+line-height: 1.7;
+margin-bottom: 30px;
+}
+
+
+.cta-btn {
+display: inline-block;
+border: 1px solid #fff;
+color: #fff;
+padding: 12px 26px;
+border-radius: 6px;
+text-decoration: none;
+font-weight: 500;
+transition: all 0.3s ease;
+}
+
+
+.cta-btn:hover {
+background-color: #fff;
+color: #1f2e38;
+}
+
+
+
+.gear-bg1{
+
+  position: absolute;
+  transform-style: preserve-3d;/*used to rotate the image but did not work*/
+  top: 60%;
+  left:-30px;
+  width: 300px;
+  transition: transform 1.5s linear; /* smooth rotation */
+  transform-origin: center;
+}
+
+
+.gear-bg2{
+
+  position: absolute;
+  transform-style: preserve-3d;/*used to rotate the image but did not work*/
+  top: 290px;
+  left:-85px;
+  width: 200px;
+  transition: transform 1.5s linear; /* smooth rotation */
+  transform-origin: center;
+}
+
+/*===========================================*/
+/* ====== Partners Section ====== */
+.partner-section {
+  text-align: center;
+  padding: 100px 0;
+  background-color: #ffffff;
+  font-family: "Cairo", sans-serif;
+  direction: rtl;
+}
+
+.partner-section.active .partner-logo {
+
+  
+
+}
+
+
+.section-title {
+  font-size: 32px;
+  color: #0e2732;
+  margin-bottom: 60px;
+  position: relative;
+}
+
+/* Decorative icons (replace with your own if needed) */
+.section-title::before,
+.section-title::after {
+  content: "";
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  background: url("assets/left-decor.png") no-repeat center/contain;
+  margin: 0 12px;
+  vertical-align: middle;
+}
+
+.section-title::after {
+  background: url("assets/right-decor.png") no-repeat center/contain;
+}
+
+/* ====== Grid of Logos ====== */
+.partners-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 40px;
+  justify-items: center;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Each logo box */
+.partner-logo {
+  background-color: #f5f8f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  width: 180px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+}
+
+.partner-logo:hover {
+  transform: translateY(-15px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+
+.partner-logo.active {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transform: scale(1);
+  filter: drop-shadow(0 0 10px rgba(106, 39, 47, 0.4));
+}
+
+/* Logo images */
+.partner-logo img {
+  max-width: 120px;
+  max-height: 60px;
+  object-fit: contain;
+  filter: grayscale(40%);
+  transition: filter 0.3s ease;
+}
+
+.partner-logo img:hover {
+  filter: grayscale(0%);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .partners-grid {
+    gap: 20px;
+  }
+  .partner-logo {
+    width: 140px;
+    height: 80px;
+  }
+}
+
+/*============================================*/
+
+
+/* ===== CTA Section ===== */
+.cta-section {
+  position: relative;
+  background: linear-gradient(180deg, #0F2B37 0%, #405B66 50%, #0F2B37 100%);
+  color: #ffffff;
+  text-align: center;
+  border-radius: 22px;
+  padding: 100px 20px;
+  width: 80%;
+  margin: 100px auto;
+  overflow: hidden;
+  direction: rtl;
+  font-family: "Cairo", sans-serif;
+}
+
+
+
+.cta-section.active .gear-bg1{
+
+  transform: rotate(60deg); /* full rotation */
+  
+
+}
+
+
+
+/* background gear image */
+/*.gear-bg {
+  position: absolute;
+  bottom: 0;
+  left: 40px;
+  width: 180px;
+  opacity: 0.1;
+  z-index: 0;
+  
+}*/
+
+/* content */
+.cta-content {
+  position: relative;
+  z-index: 1;
+}
+
+.cta-content h2 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.cta-content p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #e3e9ec;
+  margin-bottom: 35px;
+}
+
+/* red button */
+.cta-btn {
+  background-color: #6A272F ;
+  color: #fff;
+  padding: 14px 40px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.cta-btn:hover {
+ 
+  transform: scale(1.05);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .cta-section {
+    width: 90%;
+    padding: 60px 15px;
+  }
+
+  .cta-content h2 {
+    font-size: 22px;
+  }
+
+  .cta-content p {
+    font-size: 14px;
+  }
+
+  .gear-bg {
+    width: 120px;
+    left: 10px;
+  }
+}
+
+/**/
+
+/*footer style*/
+
+.footer-wave{
+
+  background-color: #fff;
+  overflow: hidden;
+}
